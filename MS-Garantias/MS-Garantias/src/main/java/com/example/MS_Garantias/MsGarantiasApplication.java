@@ -9,6 +9,9 @@ public class MsGarantiasApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MsGarantiasApplication.class, args);
 	}
-//ESTO ES UNA PRUEBA 
+//ESTO ES UNA PRUEBA
+
+
+	//lo que pasa es que esto es una prueba
 	
 }
