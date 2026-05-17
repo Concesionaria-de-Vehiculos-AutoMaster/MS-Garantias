@@ -1,0 +1,13 @@
+package com.automaster;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class MsGarantiasApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
