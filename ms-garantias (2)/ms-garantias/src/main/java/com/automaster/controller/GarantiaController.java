@@ -23,4 +23,17 @@ public class GarantiaController {
         GarantiaResponseDTO response = garantiaService.activarGarantia(request);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<GarantiaResponseDTO> obtenerGarantiaPorId(@PathVariable Long id) {
+        log.info("Petición GET recibida para buscar garantía por ID: {}", id);
+        GarantiaResponseDTO response = garantiaService.obtenerPorId(id);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarGarantia(@PathVariable Long id) {
+        log.info("Petición DELETE recibida para eliminar garantía ID: {}", id);
+        garantiaService.eliminarGarantia(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT); // 204 No Content es el estándar para un Delete exitoso
+    }
 }

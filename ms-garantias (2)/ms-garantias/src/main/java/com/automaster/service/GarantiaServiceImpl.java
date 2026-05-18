@@ -90,4 +90,20 @@ public class GarantiaServiceImpl {
         dto.setTerminos(garantia.getTerminos());
         return dto;
     }
+    public GarantiaResponseDTO obtenerPorId(Long id) {
+        log.info("Buscando garantía con ID: {}", id);
+        Garantia garantia = garantiaRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "La garantía con ID " + id + " no existe."));
+        return mapearADTO(garantia);
+    }
+
+    public void eliminarGarantia(Long id) {
+        log.info("Iniciando eliminación de garantía con ID: {}", id);
+        if (!garantiaRepository.existsById(id)) {
+            log.error("Error al eliminar: Garantía ID {} no encontrada", id);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No se puede eliminar porque la garantía no existe.");
+        }
+        garantiaRepository.deleteById(id);
+        log.info("Garantía ID {} eliminada con éxito", id);
+    }
 }
