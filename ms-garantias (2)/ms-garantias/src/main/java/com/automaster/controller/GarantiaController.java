@@ -2,6 +2,8 @@ package com.automaster.controller;
 import com.automaster.dto.GarantiaRequestDTO;
 import com.automaster.dto.GarantiaResponseDTO;
 import com.automaster.service.GarantiaServiceImpl;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +13,15 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/garantias")
+@RequestMapping("/api/v1/garantias")
+@Tag(name="Garantias ", description = "Venta de accesorios y piezas.")
 public class GarantiaController {
 
     @Autowired
     private GarantiaServiceImpl garantiaService;
 
     @PostMapping("/activar")
+    @Operation(summary = "Obtener todos las garantias ", description = "Obtiene una lista de todas las garantias ")
     public ResponseEntity<GarantiaResponseDTO> activarGarantia(@Valid @RequestBody GarantiaRequestDTO request) {
         log.info("Petición POST recibida para activar nueva garantía");
         GarantiaResponseDTO response = garantiaService.activarGarantia(request);
