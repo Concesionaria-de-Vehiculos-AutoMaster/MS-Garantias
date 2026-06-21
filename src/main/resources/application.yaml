@@ -1,0 +1,29 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: ms-garantias
+  datasource:
+    url: jdbc:mariadb://localhost:3306/db_garantias?createDatabaseIfNotExist=true
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: root
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDBDialect
+    hibernate:
+      ddl-auto: update
+
+# implementacion de swagger
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /doc/swagger-ui.html
+
+# 2. La dirección del Directorio Telefónico (Eureka Server)
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
