@@ -5,7 +5,7 @@ spring:
   application:
     name: ms-garantias
   datasource:
-    url: jdbc:mariadb://localhost:3306/db_garantias?createDatabaseIfNotExist=true
+    url: jdbc:mariadb://mysql-automaster:3306/db_garantias?createDatabaseIfNotExist=true
     driver-class-name: org.mariadb.jdbc.Driver
     username: root
     password:
